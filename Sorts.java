@@ -154,7 +154,7 @@ public class Sorts
     /**
      * The file to run for sorted arrays
      */
-    public static int[] main () {
+    public static void main () {
         //welcomes user and asks for inputs for files and sort algorithms
         System.out.println("Hello, and welcome to Vikas' Sorting Algorithm.");
         System.out.println("Please input a value from 1 to 3 to choose your sorting algorithm.");
@@ -170,20 +170,20 @@ public class Sorts
         try {
             int i, j;
             i = 0;
+            j=0;
             Scanner fileFind = new Scanner(new File("input" + fileInput + ".txt")).useDelimiter(", ");
             int [] fileScan = new int[j];
             while (fileFind.hasNextInt()) {
                 fileScan[i++] = fileFind.nextInt();
             }
-            return fileScan;
             if (numInput == 1) {
-                //Insertion sort
+                insertionSort(fileScan);
 
             } else if (numInput == 2) { 
-                //Selection sort
+                selectionSort(fileScan);
 
             } else if (numInput == 3) { 
-                //Merge sort
+                mergeSort(fileScan);
             }
         }
         catch (FileNotFoundException e) {
@@ -192,4 +192,3 @@ public class Sorts
         }
     }
 }
-
